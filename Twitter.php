@@ -30,7 +30,7 @@
  		$html .= "</li>";
  		$html .= "<li>";
  		$html .= "<label>Number of Tweets</label>";
- 		$html .= "<input type='text' name='tweetnumber' value='$twitter'/>";
+ 		$html .= "<input type='text' name='tweetnumber' value='$number'/>";
  		$html .= "</li>";
  		$html .= "</ul>";
  		
@@ -39,9 +39,11 @@
  	
  	public static function saveSettings(){
  		$account = $_POST['twitteraccount'];
+ 		$number = $_POST['tweetnumber'];
  		
  		$dbh = new CandyDB();
  		$dbh->exec('UPDATE '. DB_PREFIX .'options SET option_value="'. $account .'" WHERE option_key="twitteraccount"');
+ 		$dbh->exec('UPDATE '. DB_PREFIX .'options SET option_value="'. $number .'" WHERE option_key="tweetnumber"');
  		
  	}
  	
